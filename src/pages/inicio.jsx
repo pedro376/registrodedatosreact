@@ -59,6 +59,13 @@ export default function Inicio() {
     }
   }
 
+  function enviar() {
+    var telefono ="6441903963" 
+
+    var mensaje = "Hola, estoy interesado en sus servicios. Por favor, contáctenme."
+    var url = "https://api.whatsapp.com/send?phone=" + telefono + "&text=" + encodeURIComponent(mensaje)
+    window.open(url, "_blank")
+  }
   return (
     <article>
       {/* ---------- INICIO ---------- */}
@@ -219,7 +226,7 @@ export default function Inicio() {
             <input id='web' name='web' type='text' tabIndex='-1' autoComplete='off' value={datos.web} onChange={manejarCambio} />
           </div>
 
-          <button type='submit' className='btn-enviar' disabled={estado === 'enviando'}>
+          <button type='submit' className='btn-enviar' disabled={estado === 'enviando'} onClick={enviar()}>
             {estado === 'enviando' ? 'Enviando...' : 'Enviar mensaje'}
           </button>
 
